@@ -7,7 +7,7 @@
             "command": "sh",
             "args": [
                 "-c",
-                "cd ${fileDirname} && streamlit run ${file}"
+                "cd src/demoapp && streamlit run main.py"
             ],
             "group": {
                 "kind": "build",
