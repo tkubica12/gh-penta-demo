@@ -4,7 +4,7 @@ import plotly.express as px
 import os
 
 st.sidebar.title("Penta Investments")
-page = st.sidebar.radio("Select a company", ["Dr. Max", "Fortuna", "Penta Hospitals"])
+page = st.sidebar.radio("Select a company", ["Dr. Max", "Fortuna", "Penta Hospitals", "Prima Banka"])
 
 def load_data(file_path):
     if not os.path.exists(file_path):
@@ -39,4 +39,12 @@ elif page == "Penta Hospitals":
     df = load_data("penta_hospitals_data.csv")
     if df is not None:
         fig = px.pie(df, names='department', values='patients', title='Patients per Department')
+        st.plotly_chart(fig)
+
+elif page == "Prima Banka":
+    st.title("Prima Banka User Satisfaction")
+    df = load_data("prima_banka_data.csv")
+    if df is not None:
+        # Create a pie chart for Prima Banka user satisfaction
+        fig = px.pie(df, names='response', values='percentage', title='User Satisfaction with GitHub')
         st.plotly_chart(fig)
